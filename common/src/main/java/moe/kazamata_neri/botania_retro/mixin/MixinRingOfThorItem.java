@@ -12,7 +12,7 @@ import vazkii.botania.common.item.relic.RingOfThorItem;
 
 @Mixin(RingOfThorItem.class)
 public abstract class MixinRingOfThorItem {
-    @Inject(method = "getThorRing", at = @At("HEAD"), cancellable = true, remap = false)
+    @Inject(method = "getThorRing", at = @At("HEAD"), cancellable = true)
     private static void fixGetThorRing(Player player, CallbackInfoReturnable<ItemStack> cir)
     {
         ItemStack aesirRing = EquipmentHandler.findOrEmpty(ExtraBotaniaItems.aesirRing, player);
