@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "moe.kazamata_neri.botania_retro.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "MixinRingOfLokiItem",
+    "MixinRingOfOdinItem",
+    "MixinRingOfThorItem"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
