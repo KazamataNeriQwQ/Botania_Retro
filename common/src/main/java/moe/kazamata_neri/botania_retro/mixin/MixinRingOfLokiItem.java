@@ -12,7 +12,7 @@ import vazkii.botania.common.item.relic.RingOfLokiItem;
 
 @Mixin(RingOfLokiItem.class)
 public abstract class MixinRingOfLokiItem {
-    @Redirect(method = "onPlayerInteract", at = @At(value = "INVOKE", target = "Lvazkii/botania/common/item/relic/RingOfLokiItem;getLokiRing(Lnet/minecraft/world/entity/player/Player;)Lnet/minecraft/world/item/ItemStack;", remap = true))
+    @Redirect(method = "onPlayerInteract", at = @At(value = "INVOKE", target = "Lvazkii/botania/common/item/relic/RingOfLokiItem;getLokiRing(Lnet/minecraft/world/entity/player/Player;)Lnet/minecraft/world/item/ItemStack;"))
     private static ItemStack fixOnPlayerInteract(Player player)
     {
         var aesirRing = EquipmentHandler.findOrEmpty(ExtraBotaniaItems.aesirRing, player);

@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 
 @Mixin(ResultSlot.class)
-public class MixinResultSlotFabric {
+public abstract class MixinResultSlotFabric {
     @Shadow
     @Final
     private Player player;
@@ -24,6 +24,6 @@ public class MixinResultSlotFabric {
     )
     private void onCraft(ItemStack itemStack, CallbackInfo ci)
     {
-        RingOfAesirItem.onItemCrafted(player, itemStack);
+        RingOfAesirItem.onCrafted(player, itemStack);
     }
 }

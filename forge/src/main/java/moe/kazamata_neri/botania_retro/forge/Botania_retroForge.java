@@ -15,6 +15,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -66,7 +67,8 @@ public final class Botania_retroForge {
 
         IEventBus eventBus = MinecraftForge.EVENT_BUS;
         eventBus.addGenericListener(ItemStack.class, this::attachItemCaps);
-        eventBus.addListener((PlayerEvent.ItemCraftedEvent e) -> RingOfAesirItem.onItemCrafted(e.getEntity(), e.getCrafting()));
+        eventBus.addListener((PlayerEvent.ItemCraftedEvent e) -> RingOfAesirItem.onCrafted(e.getEntity(), e.getCrafting()));
+        eventBus.addListener((ItemTossEvent e) -> RingOfAesirItem.OnDropped(e.getEntity()));
     }
 
     private final Set<Item> itemsToAddToCreativeTab = new LinkedHashSet<>();

@@ -13,6 +13,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -26,12 +27,14 @@ import vazkii.botania.api.item.WireframeCoordinateListProvider;
 import vazkii.botania.common.advancements.RelicBindTrigger;
 import vazkii.botania.common.handler.EquipmentHandler;
 import vazkii.botania.common.helper.ItemNBTHelper;
+import vazkii.botania.common.item.BotaniaItems;
 import vazkii.botania.common.item.relic.RelicBaubleItem;
 import vazkii.botania.common.item.relic.RelicImpl;
 import vazkii.botania.xplat.XplatAbstractions;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import static vazkii.botania.common.lib.ResourceLocationHelper.prefix;
 
@@ -54,13 +57,53 @@ public class RingOfAesirItem extends RelicBaubleItem implements WireframeCoordin
         super(props);
     }
 
-    public static void onItemCrafted(Player player, ItemStack stack) {
-        if (stack.getItem() == ExtraBotaniaItems.aesirRing)
+    public static void OnDropped(ItemEntity itemEntity)
+    {
+        if (!itemEntity.level().isClientSide)
         {
-            var relic = XplatAbstractions.INSTANCE.findRelic(stack);
-            if (relic != null && player instanceof ServerPlayer serverPlayer && serverPlayer.getUUID().equals(relic.getSoulbindUUID()))
+            ItemStack stack = itemEntity.getItem();
+            if (stack.getItem() == ExtraBotaniaItems.aesirRing)
             {
-                RelicBindTrigger.INSTANCE.trigger(serverPlayer, stack);
+                var relic = XplatAbstractions.INSTANCE.findRelic(stack);
+                if (relic != null)
+                {
+                    UUID uuid = relic.getSoulbindUUID();
+                    double x = itemEntity.getX();
+                    double y = itemEntity.getY();
+                    double z = itemEntity.getZ();
+                    Level level = itemEntity.level();
+                    BlockPos blockPos = getBindingCenter(stack);
+                    List<BlockPos> blockPosList = getCursorList(stack);
+                    ItemStack lokiRing = new ItemStack(BotaniaItems.lokiRing);
+                    ItemStack odinRing = new ItemStack(BotaniaItems.odinRing);
+                    ItemStack thorRing = new ItemStack(BotaniaItems.thorRing);
+                    setBindingCenter(stack, blockPos);
+                    setCursorList(stack, blockPosList);
+                    ItemStack[] rings = {lokiRing, odinRing, thorRing};
+                    for (ItemStack ring : rings) {
+                        var relicRing = XplatAbstractions.INSTANCE.findRelic(ring);
+                        if(relicRing != null)
+                        {
+                            relicRing.bindToUUID(uuid);
+                            level.addFreshEntity(new ItemEntity(level, x, y, z, ring));
+                        }
+                    }
+                    itemEntity.remove(Entity.RemovalReason.KILLED);
+                }
+            }
+        }
+    }
+
+    public static void onCrafted(Player player, ItemStack stack) {
+        if (!player.level().isClientSide)
+        {
+            if (stack.getItem() == ExtraBotaniaItems.aesirRing)
+            {
+                var relic = XplatAbstractions.INSTANCE.findRelic(stack);
+                if (relic != null && player instanceof ServerPlayer serverPlayer && serverPlayer.getUUID().equals(relic.getSoulbindUUID()))
+                {
+                    RelicBindTrigger.INSTANCE.trigger(serverPlayer, stack);
+                }
             }
         }
     }

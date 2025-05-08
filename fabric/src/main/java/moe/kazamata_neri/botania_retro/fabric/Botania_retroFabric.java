@@ -3,16 +3,21 @@ package moe.kazamata_neri.botania_retro.fabric;
 import moe.kazamata_neri.botania_retro.Botania_retro;
 import moe.kazamata_neri.botania_retro.common.item.relic.RingOfAesirItem;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.Event;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import vazkii.botania.api.BotaniaFabricCapabilities;
 import vazkii.botania.api.BotaniaRegistries;
 import vazkii.botania.common.item.CustomCreativeTabContents;
 
+import javax.swing.text.html.parser.Entity;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.function.BiConsumer;
@@ -38,8 +43,13 @@ public final class Botania_retroFabric implements ModInitializer {
                     }
                 });
         registerRecipeSerializers(bind(BuiltInRegistries.RECIPE_SERIALIZER));
+        ServerEntityEvents.ENTITY_LOAD.register((entity, world) -> {
+            if (entity instanceof ItemEntity itemEntity)
+            {
+                RingOfAesirItem.OnDropped(itemEntity);
+            }
+        });
     }
-
     private final Set<Item> itemsToAddToCreativeTab = new LinkedHashSet<>();
 
     private final BiConsumer<Item, ResourceLocation> boundForItem =
