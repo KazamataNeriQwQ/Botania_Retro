@@ -6,10 +6,7 @@
   "client": [
   ],
   "mixins": [
-    "MixinResultSlotFabric",
-    "MixinRingOfLokiItem",
-    "MixinRingOfOdinItem",
-    "MixinRingOfThorItem"
+    "MixinResultSlotFabric"
   ],
   "injectors": {
     "defaultRequire": 1
