@@ -85,7 +85,7 @@ public class RingOfAesirItem extends RelicBaubleItem implements WireframeCoordin
                         if(relicRing != null)
                         {
                             relicRing.bindToUUID(uuid);
-                            level.addFreshEntity(new ItemEntity(level, x, y, z, ring));
+                            level.addFreshEntity(new ItemEntity(level, x, y -0.2f, z, ring));
                         }
                     }
                     itemEntity.remove(Entity.RemovalReason.KILLED);

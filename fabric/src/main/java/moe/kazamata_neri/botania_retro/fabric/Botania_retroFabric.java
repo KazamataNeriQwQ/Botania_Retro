@@ -43,7 +43,10 @@ public final class Botania_retroFabric implements ModInitializer {
         ServerEntityEvents.ENTITY_LOAD.register((entity, world) -> {
             if (entity instanceof ItemEntity itemEntity)
             {
-                RingOfAesirItem.OnDropped(itemEntity);
+                if(itemEntity.getOwner() != null)
+                {
+                    RingOfAesirItem.OnDropped(itemEntity);
+                }
             }
         });
     }
