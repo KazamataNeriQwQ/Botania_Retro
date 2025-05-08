@@ -77,8 +77,8 @@ public class RingOfAesirItem extends RelicBaubleItem implements WireframeCoordin
                     ItemStack lokiRing = new ItemStack(BotaniaItems.lokiRing);
                     ItemStack odinRing = new ItemStack(BotaniaItems.odinRing);
                     ItemStack thorRing = new ItemStack(BotaniaItems.thorRing);
-                    setBindingCenter(stack, blockPos);
-                    setCursorList(stack, blockPosList);
+                    setBindingCenter(lokiRing, blockPos);
+                    setCursorList(lokiRing, blockPosList);
                     ItemStack[] rings = {lokiRing, odinRing, thorRing};
                     for (ItemStack ring : rings) {
                         var relicRing = XplatAbstractions.INSTANCE.findRelic(ring);
