@@ -11,13 +11,12 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
-import static moe.kazamata_neri.botania_retro.common.helper.ResourceLocationHelper.prefix;
+import static moe.kazamata_neri.botania_retro.common.helper.ResourceLocationHelper.*;
 import static vazkii.botania.common.item.BotaniaItems.defaultBuilder;
 
 public final class ExtraBotaniaItems {
     private static final Map<ResourceLocation, Item> ALL = new LinkedHashMap<>();
 
-    public static final String AESIR_RING = "aesir_ring";
     public static final Item aesirRing = make(prefix(AESIR_RING), new RingOfAesirItem(defaultBuilder().stacksTo(1).fireResistant().rarity(Rarity.EPIC)));
 
     private static <T extends Item> T make(ResourceLocation id, T item) {

@@ -1,5 +1,11 @@
 {
   "item.botania_retro.aesir_ring": "Anillo del Aesir",
+  "block.botania_retro.day_bloom": "Flordía",
+  "block.botania_retro.floating_day_bloom": "Flor flotante Flordía",
+  "tile.botania_flower.day_bloom.reference": "Un hilo de luz",
+  "block.botania_retro.night_shade": "Nochedona",
+  "block.botania_retro.floating_night_shade": "Flor flotante Nochedona",
+  "tile.botania_flower.night_shade.reference": "Firma horrible",
   "advancement.botania_retro:aesirRing": "Como dictan los dioses",
   "advancement.botania_retro:aesirRing.desc": "Crea el anillo del Aesir combinando los anillos de los dioses"
 }

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "botania:floating_flower",
+  "ingredients": [
+    {
+      "tag": "botania:floating_flowers"
+    },
+    {
+      "item": "botania_retro:day_bloom_prime"
+    }
+  ],
+  "result": {
+    "item": "botania_retro:floating_day_bloom_prime"
+  }
+}

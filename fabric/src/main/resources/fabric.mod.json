@@ -15,10 +15,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "moe.kazamata_neri.botania_retro.fabric.Botania_retroFabric"
+      "moe.kazamata_neri.botania_retro.fabric.FabricCommonInitializer"
     ],
     "client": [
-      "moe.kazamata_neri.botania_retro.fabric.client.Botania_retroFabricClient"
+      "moe.kazamata_neri.botania_retro.fabric.client.FabricClientInitializer"
     ]
   },
   "mixins": [

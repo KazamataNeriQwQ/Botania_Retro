@@ -2,7 +2,8 @@ package moe.kazamata_neri.botania_retro.forge;
 
 import com.google.common.base.Supplier;
 import com.google.common.base.Suppliers;
-import moe.kazamata_neri.botania_retro.Botania_retro;
+import moe.kazamata_neri.botania_retro.CommonInitializer;
+import moe.kazamata_neri.botania_retro.common.block.ExtraBotaniaFlowerBlocks;
 import moe.kazamata_neri.botania_retro.common.item.ExtraBotaniaItems;
 import moe.kazamata_neri.botania_retro.common.item.relic.RingOfAesirItem;
 import net.minecraft.core.Registry;
@@ -37,19 +38,23 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import static moe.kazamata_neri.botania_retro.Botania_retro.MOD_ID;
+import static moe.kazamata_neri.botania_retro.CommonInitializer.MOD_ID;
 import static moe.kazamata_neri.botania_retro.common.helper.ResourceLocationHelper.prefix;
 
 @Mod(MOD_ID)
-public final class Botania_retroForge {
+public final class ForgeCommomInitializer {
     private static final Supplier<Map<Item, Function<ItemStack, Relic>>> RELIC = Suppliers.memoize(() -> Map.of(
             ExtraBotaniaItems.aesirRing, RingOfAesirItem::makeRelic
     ));
 
-    public Botania_retroForge() {
-        Botania_retro.init();
+    public ForgeCommomInitializer() {
+        CommonInitializer.init();
 
         bindForItems(ExtraBotaniaItems::registerItems);
+        bindForItems(ExtraBotaniaFlowerBlocks::registerItemBlocks);
+        bind(Registries.BLOCK, ExtraBotaniaFlowerBlocks::registerBlocks);
+        bind(Registries.BLOCK_ENTITY_TYPE, ExtraBotaniaFlowerBlocks::registerTEs);
+
         bind(Registries.RECIPE_SERIALIZER, ExtraBotaniaItems::registerRecipeSerializers);
         FMLJavaModLoadingContext.get().getModEventBus().addListener((BuildCreativeModeTabContentsEvent e) -> {
             if (e.getTabKey() == BotaniaRegistries.BOTANIA_TAB_KEY) {

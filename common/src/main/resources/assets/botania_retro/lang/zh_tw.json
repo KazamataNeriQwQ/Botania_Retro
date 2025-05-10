@@ -1,5 +1,17 @@
 {
   "item.botania_retro.aesir_ring": "諸神之戒",
+  "block.botania_retro.day_bloom": "太陽花",
+  "block.botania_retro.floating_day_bloom": "浮空太陽花",
+  "tile.botania_flower.day_bloom.reference": "刺眼的光",
+  "block.botania_retro.day_bloom_prime": "始祖太陽花",
+  "block.botania_retro.floating_day_bloom_prime": "浮空始祖太陽花",
+  "tile.botania_flower.day_bloom_prime.reference": "你不應該擁有這個",
+  "block.botania_retro.night_shade": "夜顛茄",
+  "block.botania_retro.floating_night_shade": "浮空夜顛茄",
+  "tile.botania_flower.night_shade.reference": "可怕的樣子",
+  "block.botania_retro.night_shade_prime": "始祖夜顛茄",
+  "block.botania_retro.floating_night_shade_prime": "浮空始祖夜顛茄",
+  "tile.botania_flower.night_shade_prime.reference": "你不應該擁有這個",
   "advancement.botania_retro:aesirRing": "神のまにまに",
   "advancement.botania_retro:aesirRing.desc": "通過合成做出諸神之戒"
 }

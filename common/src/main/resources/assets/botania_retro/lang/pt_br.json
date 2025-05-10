@@ -1,4 +1,16 @@
 {
   "item.botania_retro.aesir_ring": "Anel de Aesir",
+  "block.botania_retro.day_bloom": "Daybloom",
+  "block.botania_retro.floating_day_bloom": "Daybloom Flutuante",
+  "tile.botania_flower.day_bloom.reference": "Uma espetada de luz",
+  "block.botania_retro.day_bloom_prime": "Daybloom Primus",
+  "block.botania_retro.floating_day_bloom_prime": "Daybloom Primus Flutuante",
+  "tile.botania_flower.day_bloom_prime.reference": "Isso não deveria estar no seu inventário",
+  "block.botania_retro.night_shade": "Nightshade",
+  "block.botania_retro.floating_night_shade": "Nightshade Flutuante",
+  "tile.botania_flower.night_shade.reference": "Sinal sobrenatural",
+  "block.botania_retro.night_shade_prime": "Nightshade Primus",
+  "block.botania_retro.floating_night_shade_prime": "Nightshade Primus Flutuante",
+  "tile.botania_flower.night_shade_prime.reference": "Isso não deveria estar no seu inventário",
   "advancement.botania_retro:aesirRing.desc": "Crie um Anel de Aesir com os três anéis dos deuses"
 }

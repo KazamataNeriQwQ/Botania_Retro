@@ -1,6 +1,8 @@
 package moe.kazamata_neri.botania_retro.fabric;
 
-import moe.kazamata_neri.botania_retro.Botania_retro;
+import moe.kazamata_neri.botania_retro.CommonInitializer;
+import moe.kazamata_neri.botania_retro.common.block.ExtraBotaniaFlowerBlocks;
+import moe.kazamata_neri.botania_retro.common.item.ExtraBotaniaItems;
 import moe.kazamata_neri.botania_retro.common.item.relic.RingOfAesirItem;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
@@ -21,11 +23,14 @@ import java.util.function.BiConsumer;
 
 import static moe.kazamata_neri.botania_retro.common.item.ExtraBotaniaItems.*;
 
-public final class Botania_retroFabric implements ModInitializer {
+public final class FabricCommonInitializer implements ModInitializer {
     @Override
     public void onInitialize() {
-        Botania_retro.init();
-        registerItems(boundForItem);
+        CommonInitializer.init();
+        ExtraBotaniaItems.registerItems(boundForItem);
+        ExtraBotaniaFlowerBlocks.registerBlocks(bind(BuiltInRegistries.BLOCK));
+        ExtraBotaniaFlowerBlocks.registerItemBlocks(boundForItem);
+        ExtraBotaniaFlowerBlocks.registerTEs(bind(BuiltInRegistries.BLOCK_ENTITY_TYPE));
         registerCapabilities();
         ItemGroupEvents.modifyEntriesEvent(BotaniaRegistries.BOTANIA_TAB_KEY)
                 .register(entries -> {
