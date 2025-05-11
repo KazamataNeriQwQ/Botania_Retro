@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class DayBloomBlockPrimeEntity extends PassiveGeneratingBlockEntity{
     public DayBloomBlockPrimeEntity(BlockPos pos, BlockState state) {
-        super(ExtraBotaniaFlowerBlocks.DAYBLOOMPRIME, pos, state, 1);
+        super(ExtraBotaniaFlowerBlocks.DAYBLOOMPRIME, pos, state, 2);
     }
 
     @Override

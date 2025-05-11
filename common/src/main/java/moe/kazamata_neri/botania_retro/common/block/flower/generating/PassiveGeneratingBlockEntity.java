@@ -10,23 +10,15 @@ import vazkii.botania.api.block_entity.GeneratingFlowerBlockEntity;
 import vazkii.botania.api.block_entity.RadiusDescriptor;
 import vazkii.botania.client.fx.WispParticleData;
 
-import static vazkii.botania.common.block.flower.generating.FluidGeneratorBlockEntity.TAG_COOLDOWN;
 import static vazkii.botania.common.block.flower.generating.HydroangeasBlockEntity.TAG_PASSIVE_DECAY_TICKS;
 
 public abstract class PassiveGeneratingBlockEntity extends GeneratingFlowerBlockEntity {
-    public static final String TAG_PRIME_POSITION_X = "primePositionX";
-    public static final String TAG_PRIME_POSITION_Y = "primePositionY";
-    public static final String TAG_PRIME_POSITION_Z = "primePositionZ";
-    public static final String TAG_SAVED_POSITION = "savedPosition";
-
     public static final int DECAY_TIME = 72000;
 
     protected int passiveDecayTicks;
-    protected int cooldown = 0;
     protected int perManaGenerationTick;
 
-    protected BlockPos primePosition = new BlockPos(0,0,0);
-    protected boolean savedPosition;
+    protected BlockPos primePosition;
 
     public PassiveGeneratingBlockEntity(BlockEntityType<?> entityType, BlockPos pos, BlockState state, int tick) {
         super(entityType, pos, state);
@@ -36,12 +28,10 @@ public abstract class PassiveGeneratingBlockEntity extends GeneratingFlowerBlock
 
     public void setPrimusPosition(BlockPos pos) {
         primePosition = pos;
-        savedPosition = true;
     }
 
     @Override
-    public void tickFlower()
-    {
+    public void tickFlower() {
         super.tickFlower();
 
         if(canGenerate())
@@ -53,19 +43,23 @@ public abstract class PassiveGeneratingBlockEntity extends GeneratingFlowerBlock
 
             if (getLevel() != null && !getLevel().isClientSide) {
                 if (ticksExisted % perManaGenerationTick == 0) {
-                    addMana(1);
+                    addMana(2);
                     sync();
                 }
             }
         }
 
         if (getLevel() != null && !getLevel().isClientSide) {
-            if ((!isPrime() && ++passiveDecayTicks > DECAY_TIME) || (isPrime() && (!savedPosition || getBlockPos() != primePosition)))
+            if (!isPrime() && ++passiveDecayTicks > DECAY_TIME)
             {
                 getLevel().destroyBlock(getBlockPos(), false);
                 if (Blocks.DEAD_BUSH.defaultBlockState().canSurvive(getLevel(), getBlockPos())) {
                     getLevel().setBlockAndUpdate(getBlockPos(), Blocks.DEAD_BUSH.defaultBlockState());
                 }
+            }
+            else if(isPrime() && !getBlockPos().equals(primePosition))
+            {
+                getLevel().destroyBlock(getBlockPos(), false);
             }
         }
     }
@@ -73,7 +67,7 @@ public abstract class PassiveGeneratingBlockEntity extends GeneratingFlowerBlock
     @Override
     public int getMaxMana()
     {
-        return 150;
+        return 160;
     }
 
     public boolean isPrime()
@@ -93,19 +87,12 @@ public abstract class PassiveGeneratingBlockEntity extends GeneratingFlowerBlock
     public void readFromPacketNBT(CompoundTag cmp) {
         super.readFromPacketNBT(cmp);
         passiveDecayTicks = cmp.getInt(TAG_PASSIVE_DECAY_TICKS);
-        int x = cmp.getInt(TAG_PRIME_POSITION_X); int y = cmp.getInt(TAG_PRIME_POSITION_Y); int z = cmp.getInt(TAG_PRIME_POSITION_Z);
-        primePosition = new BlockPos(x, y, z);
-        savedPosition = cmp.getBoolean(TAG_SAVED_POSITION);
-        cooldown = cmp.getInt(TAG_COOLDOWN);
     }
 
     @Override
     public void writeToPacketNBT(CompoundTag cmp) {
         super.writeToPacketNBT(cmp);
         cmp.putInt(TAG_PASSIVE_DECAY_TICKS, passiveDecayTicks);
-        cmp.putInt(TAG_PRIME_POSITION_X, primePosition.getX()); cmp.putInt(TAG_PRIME_POSITION_Y, primePosition.getY()); cmp.putInt(TAG_PRIME_POSITION_Z, primePosition.getZ());
-        cmp.putBoolean(TAG_SAVED_POSITION, savedPosition);
-        cmp.putInt(TAG_COOLDOWN, cooldown);
     }
 
     @Override

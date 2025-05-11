@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:random_boolean_selector",
+  "config": {
+    "feature_false":
+    {
+      "feature": "botania_retro:day_bloom_prime_patch",
+      "placement": []
+    },
+    "feature_true":
+    {
+      "feature": "botania_retro:night_shade_prime_patch",
+      "placement": []
+    }
+  }
+}

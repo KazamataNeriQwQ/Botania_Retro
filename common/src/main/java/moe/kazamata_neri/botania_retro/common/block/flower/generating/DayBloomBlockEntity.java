@@ -9,7 +9,7 @@ public class DayBloomBlockEntity extends PassiveGeneratingBlockEntity  {
 
 
     public DayBloomBlockEntity(BlockPos pos, BlockState state) {
-        super(ExtraBotaniaFlowerBlocks.DAYBLOOM, pos, state, 2);
+        super(ExtraBotaniaFlowerBlocks.DAYBLOOM, pos, state, 3);
     }
 
     @Override

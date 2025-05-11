@@ -7,13 +7,19 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class NightShadePrimeBlockEntity extends PassiveGeneratingBlockEntity {
     public NightShadePrimeBlockEntity(BlockPos pos, BlockState state) {
-        super(ExtraBotaniaFlowerBlocks.NIGHTSHADEPRIME, pos, state, 2);
+        super(ExtraBotaniaFlowerBlocks.NIGHTSHADEPRIME, pos, state, 3);
     }
 
     @Override
     public int getColor()
     {
         return 0x3D2A90;
+    }
+
+    @Override
+    public boolean isPrime()
+    {
+        return true;
     }
 
     @Override
