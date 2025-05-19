@@ -2,10 +2,10 @@
   "item.botania_retro.aesir_ring": "아사의 반지",
   "block.botania_retro.day_bloom": "해맞이 꽃",
   "block.botania_retro.floating_day_bloom": "떠다니는 해맞이 꽃",
-  "tile.botania_flower.day_bloom.reference": "빛의 함정",
+  "block.botania_retro.day_bloom.reference": "빛의 함정",
   "block.botania_retro.night_shade": "밤초롱꽃",
   "block.botania_retro.floating_night_shade": "떠다니는 밤초롱꽃",
-  "tile.botania_flower.night_shade.reference": "무시무시한 특징",
+  "block.botania_retro.night_shade.reference": "무시무시한 특징",
   "advancement.botania_retro:aesirRing": "신이 내린 뜻대로",
   "advancement.botania_retro:aesirRing.desc": "아사의 반지를 얻어보세요"
 }

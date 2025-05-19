@@ -84,19 +84,19 @@ public class ExtraBotaniaFlowerBlocks {
 
     public static void registerBlocks(BiConsumer<Block, ResourceLocation> r)
     {
-        r.accept(dayBloom, prefix(SUBTILE_DAYBLOOM));
-        r.accept(dayBloomFloating, floating(SUBTILE_DAYBLOOM));
-        r.accept(dayBloomPotted, potted(SUBTILE_DAYBLOOM));
-        r.accept(dayBloomPrime, prefix(SUBTILE_DAYBLOOM_PRIME));
-        r.accept(dayBloomPrimeFloating, floating(SUBTILE_DAYBLOOM_PRIME));
-        r.accept(dayBloomPrimePotted, potted(SUBTILE_DAYBLOOM_PRIME));
+        r.accept(dayBloom, prefix(SUBblock_DAYBLOOM));
+        r.accept(dayBloomFloating, floating(SUBblock_DAYBLOOM));
+        r.accept(dayBloomPotted, potted(SUBblock_DAYBLOOM));
+        r.accept(dayBloomPrime, prefix(SUBblock_DAYBLOOM_PRIME));
+        r.accept(dayBloomPrimeFloating, floating(SUBblock_DAYBLOOM_PRIME));
+        r.accept(dayBloomPrimePotted, potted(SUBblock_DAYBLOOM_PRIME));
 
-        r.accept(nightShade, prefix(SUBTILE_NIGHTSHADE));
-        r.accept(nightShadeFloating, floating(SUBTILE_NIGHTSHADE));
-        r.accept(nightShadePotted, potted(SUBTILE_NIGHTSHADE));
-        r.accept(nightShadePrime, prefix(SUBTILE_NIGHTSHADE_PRIME));
-        r.accept(nightShadePrimeFloating, floating(SUBTILE_NIGHTSHADE_PRIME));
-        r.accept(nightShadePrimePotted, potted(SUBTILE_NIGHTSHADE_PRIME));
+        r.accept(nightShade, prefix(SUBblock_NIGHTSHADE));
+        r.accept(nightShadeFloating, floating(SUBblock_NIGHTSHADE));
+        r.accept(nightShadePotted, potted(SUBblock_NIGHTSHADE));
+        r.accept(nightShadePrime, prefix(SUBblock_NIGHTSHADE_PRIME));
+        r.accept(nightShadePrimeFloating, floating(SUBblock_NIGHTSHADE_PRIME));
+        r.accept(nightShadePrimePotted, potted(SUBblock_NIGHTSHADE_PRIME));
     }
 
     public static void registerItemBlocks(BiConsumer<Item, ResourceLocation> r) {

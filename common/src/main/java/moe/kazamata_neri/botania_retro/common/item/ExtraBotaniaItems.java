@@ -1,7 +1,7 @@
 package moe.kazamata_neri.botania_retro.common.item;
 
-import moe.kazamata_neri.botania_retro.common.crafting.recipe.ShapelessRelicBindRecipe;
-import moe.kazamata_neri.botania_retro.common.item.relic.RingOfAesirItem;
+import moe.kazamata_neri.botania_retro.common.crafting.recipe.*;
+import moe.kazamata_neri.botania_retro.common.item.relic.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;

@@ -17,8 +17,8 @@ public class ResourceLocationHelper {
         return new ResourceLocation(MOD_ID, "potted_" + path);
     }
     public static final String AESIR_RING = "aesir_ring";
-    public static final String SUBTILE_DAYBLOOM = "day_bloom";
-    public static final String SUBTILE_DAYBLOOM_PRIME = "day_bloom_prime";
-    public static final String SUBTILE_NIGHTSHADE = "night_shade";
-    public static final String SUBTILE_NIGHTSHADE_PRIME = "night_shade_prime";
+    public static final String SUBblock_DAYBLOOM = "day_bloom";
+    public static final String SUBblock_DAYBLOOM_PRIME = "day_bloom_prime";
+    public static final String SUBblock_NIGHTSHADE = "night_shade";
+    public static final String SUBblock_NIGHTSHADE_PRIME = "night_shade_prime";
 }

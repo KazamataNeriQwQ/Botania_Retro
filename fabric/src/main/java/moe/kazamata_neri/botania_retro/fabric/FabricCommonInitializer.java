@@ -3,7 +3,7 @@ package moe.kazamata_neri.botania_retro.fabric;
 import moe.kazamata_neri.botania_retro.CommonInitializer;
 import moe.kazamata_neri.botania_retro.common.block.ExtraBotaniaFlowerBlocks;
 import moe.kazamata_neri.botania_retro.common.item.ExtraBotaniaItems;
-import moe.kazamata_neri.botania_retro.common.item.relic.RingOfAesirItem;
+import moe.kazamata_neri.botania_retro.common.item.relic.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;

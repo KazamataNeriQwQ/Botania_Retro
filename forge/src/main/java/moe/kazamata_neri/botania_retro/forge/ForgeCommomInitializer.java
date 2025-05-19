@@ -5,7 +5,7 @@ import com.google.common.base.Suppliers;
 import moe.kazamata_neri.botania_retro.CommonInitializer;
 import moe.kazamata_neri.botania_retro.common.block.ExtraBotaniaFlowerBlocks;
 import moe.kazamata_neri.botania_retro.common.item.ExtraBotaniaItems;
-import moe.kazamata_neri.botania_retro.common.item.relic.RingOfAesirItem;
+import moe.kazamata_neri.botania_retro.common.item.relic.*;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;

@@ -243,6 +243,6 @@ public class RingOfAesirItem extends RelicBaubleItem implements WireframeCoordin
     }
 
     public static Relic makeRelic(ItemStack stack) {
-        return new RelicImpl(stack, prefix("challenge/loki_ring"));
+        return new RelicImpl(stack, prefix("challenge/aesir_ring"));
     }
 }
