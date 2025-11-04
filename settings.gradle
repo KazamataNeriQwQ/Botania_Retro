@@ -9,6 +9,6 @@ pluginManagement {
 
 rootProject.name = 'botania_retro'
 
-include 'common'
-include 'fabric'
-include 'forge'
+include 'Common'
+include 'Fabric'
+include 'NeoForge'

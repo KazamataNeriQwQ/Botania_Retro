@@ -1,5 +1,5 @@
 plugins {
-    id 'dev.architectury.loom' version '1.10-SNAPSHOT' apply false
+    id 'dev.architectury.loom' version '1.11-SNAPSHOT' apply false
     id 'architectury-plugin' version '3.4-SNAPSHOT'
     id 'com.github.johnrengelman.shadow' version '8.1.1' apply false
 }
@@ -29,7 +29,7 @@ subprojects {
         maven { url "https://maven.parchmentmc.net/" }
     }
 
-    var nameForRef = project.name.equals("common") ? "fabric" : project.name
+    var nameForRef = project.name.equals("Common") ? "Fabric" : project.name
     dependencies {
         minecraft "net.minecraft:minecraft:$rootProject.minecraft_version"
         mappings loom.layered() {
@@ -37,7 +37,10 @@ subprojects {
             parchment("org.parchmentmc.data:parchment-${parchment_version}")
         }
 
-        modImplementation("vazkii.botania:Botania:${botania_version}-${nameForRef.toUpperCase()}") { transitive = false }
+        //modImplementation("vazkii.botania:Botania:${botania_version}-${nameForRef.toUpperCase()}") { transitive = false }
+
+        //Local Build
+        modImplementation files("/home/neri/botania-${nameForRef.toLowerCase()}-${minecraft_version}-${botania_version}-SNAPSHOT.jar")
 
         implementation fileTree(dir: "libs/$minecraft_version", include: '*.jar')
         implementation fileTree(dir: "../libs/$minecraft_version", include: '*.jar')
@@ -49,12 +52,12 @@ subprojects {
         // If you remove this line, sources will not be generated.
         withSourcesJar()
 
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
     tasks.withType(JavaCompile).configureEach {
-        it.options.release = 17
+        it.options.release = 21
     }
 
     // Configure Maven publishing.

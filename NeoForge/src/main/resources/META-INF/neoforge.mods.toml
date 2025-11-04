@@ -1,0 +1,38 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "Botania License"
+
+[[mods]]
+modId = "botania_retro"
+version = "${version}"
+displayName = "Botania Retro"
+authors = "Kazamata Neri"
+description = '''
+This addon restores legacy items removed from older versions of Botania, allowing players to relive nostalgic mechanics and designs.
+'''
+
+logoFile = "assets/botania_retro/icon.png"
+
+[[mixins]]
+config = "botania_retro.mixins.json"
+
+[[dependencies.botania_retro]]
+modId = "neoforge"
+mandatory = true
+versionRange = "[21.1.206,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.botania_retro]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.botania_retro]]
+modId = "botania"
+mandatory = true
+versionRange = "[0,)"
+ordering = "AFTER"
+side = "BOTH"

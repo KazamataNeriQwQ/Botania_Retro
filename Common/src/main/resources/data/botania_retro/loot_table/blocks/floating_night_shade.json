@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "botania_retro:floating_night_shade",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "include": [
+                "botania:decay_ticks",
+                "botania_retro:tick_count"
+              ],
+              "source": "block_entity"
+            }
+          ]
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "botania_retro",
+  "version": "${version}",
+  "name": "Botania Retro",
+  "description": "This addon restores legacy items removed from older versions of Botania, allowing players to relive nostalgic mechanics and designs.",
+  "authors": [
+    "Kazamata Neri"
+  ],
+  "contact": {
+    "homepage": "https://kazamataneri.tech"
+  },
+  "license": "Botania License",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "moe.kazamata_neri.botania_retro.fabric.FabricCommonInitializer"
+    ],
+    "client": [
+      "moe.kazamata_neri.botania_retro.fabric.client.FabricClientInitializer"
+    ]
+  },
+  "mixins": [
+    "botania_retro.mixins.json",
+    "botania_retro.fabric.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.0",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": ">=0.83.0",
+    "botania": "*"
+  }
+}
