@@ -1,0 +1,17 @@
+{
+  "item.botania_retro.aesir_ring": "アース神族の指輪",
+  "block.botania_retro.day_bloom": "デイブルーム",
+  "block.botania_retro.floating_day_bloom": "浮遊するデイブルーム",
+  "block.botania_retro.day_bloom.reference": "突き刺すような光",
+  "block.botania_retro.day_bloom_prime": "デイブルーム・プリマス",
+  "block.botania_retro.floating_day_bloom_prime": "浮遊するデイブルーム・プリマス",
+  "block.botania_retro.day_bloom_prime.reference": "手に持ってはいけません",
+  "block.botania_retro.night_shade": "ナイトシェイド",
+  "block.botania_retro.floating_night_shade": "浮遊するナイトシェイド",
+  "block.botania_retro.night_shade.reference": "恐ろしい特徴",
+  "block.botania_retro.night_shade_prime": "ナイトシェイド・プリマス",
+  "block.botania_retro.floating_night_shade": "浮遊するナイトシェイド・プリマス",
+  "block.botania_retro.night_shade_prime.reference": "手に持ってはいけません",
+  "advancement.botania_retro:aesirRing": "神のまにまに",
+  "advancement.botania_retro:aesirRing.desc": "神々の指輪を合成して、アース神族の指輪を作る"
+}

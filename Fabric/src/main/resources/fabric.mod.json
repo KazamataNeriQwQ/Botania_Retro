@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${description}",
+  "authors": [
+    "${mod_author}"
+  ],
+  "contact": {
+    "homepage": "https://github.com/KazamataNeriQwQ",
+    "sources": "https://github.com/KazamataNeriQwQ/Botania_Retro"
+  },
+  "license": "${license}",
+  "icon": "${mod_id}.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "moe.kazamata_neri.botania_retro.fabric.FabricCommonInitializer"
+    ],
+    "client": [
+      "moe.kazamata_neri.botania_retro.fabric.client.FabricClientInitializer"
+    ]
+  },
+  "mixins": [
+    "${mod_id}.mixins.json",
+    "${mod_id}.fabric.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}",
+    "java": ">=${java_version}",
+    "botania": "*"
+  },
+  "suggests": {
+  }
+}

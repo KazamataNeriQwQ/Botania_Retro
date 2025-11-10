@@ -1,0 +1,19 @@
+{
+  "type": "botania_retro:relic_bind_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "botania:loki_ring"
+    },
+    {
+      "item": "botania:odin_ring"
+    },
+    {
+      "item": "botania:thor_ring"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "botania_retro:aesir_ring"
+  }
+}

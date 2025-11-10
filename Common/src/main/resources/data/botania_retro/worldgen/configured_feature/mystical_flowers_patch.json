@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "botania:mystical_flowers",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.00263,
+        "feature":
+        {
+          "feature": "botania_retro:prime_flower_patch",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

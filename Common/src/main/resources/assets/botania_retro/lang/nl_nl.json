@@ -1,0 +1,17 @@
+{
+  "item.botania_retro.aesir_ring": "Ring van de Aesir",
+  "block.botania_retro.day_bloom": "Dagbloem",
+  "block.botania_retro.floating_day_bloom": "Drijvende Dagbloem",
+  "block.botania_retro.day_bloom.reference": "Een Steek van licht",
+  "block.botania_retro.day_bloom_prime": "Dagbloem Primus",
+  "block.botania_retro.floating_day_bloom_prime": "Drijvende Dagbloem Primus",
+  "block.botania_retro.day_bloom_prime.reference": "Je zou dit niet bij je moeten hebben",
+  "block.botania_retro.night_shade": "Nachtschaduw",
+  "block.botania_retro.floating_night_shade": "Drijvende Nachtschaduw",
+  "block.botania_retro.night_shade.reference": "Onaangenaam herkenbaar",
+  "block.botania_retro.night_shade_prime": "Nachtschaduw Primus",
+  "block.botania_retro.floating_night_shade_prime": "Drijvende Nachtschaduw Primus",
+  "block.botania_retro.night_shade_prime.reference": "Je zou dit niet bij je moeten hebben",
+  "advancement.botania_retro:aesirRing": "Zoals de Goden zeggen",
+  "advancement.botania_retro:aesirRing.desc": "Vervaardig de Ring van de Aesir door de Ring der Goden te combineren"
+}

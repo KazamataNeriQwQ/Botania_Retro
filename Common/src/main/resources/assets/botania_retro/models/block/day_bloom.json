@@ -1,0 +1,6 @@
+{
+  "parent": "botania:block/shapes/cross",
+  "textures": {
+    "cross": "botania_retro:block/day_bloom"
+  }
+}
