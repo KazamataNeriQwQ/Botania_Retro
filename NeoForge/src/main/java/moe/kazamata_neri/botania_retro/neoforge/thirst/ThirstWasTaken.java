@@ -1,17 +1,21 @@
 package moe.kazamata_neri.botania_retro.neoforge.thirst;
 
+import dev.ghen.thirst.Thirst;
 import dev.ghen.thirst.content.thirst.PlayerThirst;
 import dev.ghen.thirst.foundation.common.capability.ModAttachment;
 import moe.kazamata_neri.botania_retro.api.IThirstLike;
 import net.minecraft.world.entity.player.Player;
 
 public final class ThirstWasTaken extends IThirstLike {
+    public final static String ModID = Thirst.ID;
 
-    public static final String ModID = "thirst";
+    @Override
     public boolean CanDrink(Player player)
     {
         return ((PlayerThirst)player.getData(ModAttachment.PLAYER_THIRST)).getThirst() < 20;
     }
+
+    @Override
     public void Drink(Player player)
     {
         PlayerThirst playerThirst = ((PlayerThirst)player.getData(ModAttachment.PLAYER_THIRST));

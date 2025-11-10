@@ -24,7 +24,12 @@ dependencies {
     compileOnly "vazkii.botania:botania-xplat-${minecraft_version}:${botania_version}-SNAPSHOT"
 
     // Thirst Like
-    compileOnly "curse.maven:tough-as-nails-246391:4997935"
+    neoForgeCompileDependencies "${tan}"
+    neoForgeCompileDependencies "${suv}"
+    neoForgeCompileDependencies "${hsc}"
+
+    // Thirst Like Lib
+    neoForgeCompileDependencies "${unl}"
 }
 
 configurations {

@@ -12,6 +12,15 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
 
     modImplementation "vazkii.botania:botania-fabric-${minecraft_version}:${botania_version}-SNAPSHOT"
+
+    // Thirst Like
+    modImplementation "${tan}"
+    modImplementation "${suv}"
+    modImplementation "${hsc}"
+    modImplementation "${dhy}"
+
+    // Thirst Like Lib
+    modImplementation "${unl}"
 }
 
 loom {

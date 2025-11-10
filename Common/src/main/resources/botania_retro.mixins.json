@@ -5,10 +5,10 @@
   "refmap": "${mod_id}.refmap.json",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "moe.kazamata_neri.common.mixin.MixinFruitOfGrisaiaItem",
-    "moe.kazamata_neri.common.mixin.MixinRingOfLokiItem",
-    "moe.kazamata_neri.common.mixin.MixinRingOfOdinItem",
-    "moe.kazamata_neri.common.mixin.MixinRingOfThorItem"
+    "MixinFruitOfGrisaiaItem",
+    "MixinRingOfLokiItem",
+    "MixinRingOfOdinItem",
+    "MixinRingOfThorItem"
   ],
   "client": [],
   "server": [],

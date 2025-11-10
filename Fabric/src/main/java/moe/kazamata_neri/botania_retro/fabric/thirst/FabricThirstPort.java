@@ -1,30 +1,29 @@
-package moe.kazamata_neri.botania_retro.neoforge.thirst;
+package moe.kazamata_neri.botania_retro.fabric.thirst;
 
-import dev.ghen.thirst.Thirst;
 import moe.kazamata_neri.botania_retro.api.IThirstLike;
 import moe.kazamata_neri.botania_retro.thirst.Homeostatic;
 import moe.kazamata_neri.botania_retro.thirst.Survive;
 import moe.kazamata_neri.botania_retro.thirst.ToughAsNails;
-import net.neoforged.fml.ModList;
+import net.fabricmc.loader.api.FabricLoader;
 
-public class NeoForgeThirstPort {
-    public static void register(ModList modList)
+public class FabricThirstPort {
+    public static void register(FabricLoader loader)
     {
-        if(modList.isLoaded(ToughAsNails.ModID))
+        if(loader.isModLoaded(ToughAsNails.ModID))
         {
             IThirstLike.INSTANCE.add(new ToughAsNails());
         }
-        if(modList.isLoaded(Survive.ModID))
+        if(loader.isModLoaded(Survive.ModID))
         {
             IThirstLike.INSTANCE.add(new Survive());
         }
-        if(modList.isLoaded(Homeostatic.ModID))
+        if(loader.isModLoaded(Homeostatic.ModID))
         {
             IThirstLike.INSTANCE.add(new Homeostatic());
         }
-        if(modList.isLoaded(ThirstWasTaken.ModID))
+        if(loader.isModLoaded(Dehydration.ModID))
         {
-            IThirstLike.INSTANCE.add(new ThirstWasTaken());
+            IThirstLike.INSTANCE.add(new Dehydration());
         }
     }
 }

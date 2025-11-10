@@ -7,9 +7,11 @@ import moe.kazamata_neri.botania_retro.common.component.ExtraBotaniaDataComponen
 import moe.kazamata_neri.botania_retro.common.crafting.ExtraBotaniaRecipeTypes;
 import moe.kazamata_neri.botania_retro.common.item.ExtraBotaniaItems;
 import moe.kazamata_neri.botania_retro.common.item.relic.RingOfAesirItem;
+import moe.kazamata_neri.botania_retro.fabric.thirst.FabricThirstPort;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -32,6 +34,8 @@ public final class FabricCommonInitializer implements ModInitializer {
 
         registerCapabilities();
         registerEvents();
+
+        FabricThirstPort.register(FabricLoader.getInstance());
     }
 
     private void registryInit() {

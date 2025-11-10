@@ -4,10 +4,16 @@ plugins {
 }
 
 dependencies {
-    compileOnly "vazkii.botania:botania-neoforge-${minecraft_version}:${botania_version}-SNAPSHOT"
+    neoForgeCompileDependencies "vazkii.botania:botania-neoforge-${minecraft_version}:${botania_version}-SNAPSHOT"
 
     // ThirstLike
-    compileOnly "curse.maven:thirst-was-taken-679270:5568715"
+    neoForgeCompileDependencies "${tan}"
+    neoForgeCompileDependencies "${suv}"
+    neoForgeCompileDependencies "${hsc}"
+    neoForgeCompileDependencies "${twt}"
+
+    // Thirst Like Lib
+    neoForgeCompileDependencies "${unl}"
 }
 
 neoForge {
