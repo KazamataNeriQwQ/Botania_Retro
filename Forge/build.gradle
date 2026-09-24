@@ -14,7 +14,7 @@ legacyForge {
 
     validateAccessTransformers = true
 
-    def at = project(':Common').file('src/main/resources/META-INF/accesstransformer.cfg')
+    def at = project(':common').file('src/main/resources/META-INF/accesstransformer.cfg')
     if (at.exists()) {
         accessTransformers = ["src/main/resources/META-INF/accesstransformer.cfg"]
     }
@@ -45,7 +45,7 @@ legacyForge {
 sourceSets.main.resources.srcDir 'src/generated/resources'
 
 dependencies {
-    compileOnly project(":Common")
+    compileOnly project(":common")
     annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT:processor")
 
     compileOnly("vazkii.botania:Botania:${botania_version}-FORGE") { transitive = false }

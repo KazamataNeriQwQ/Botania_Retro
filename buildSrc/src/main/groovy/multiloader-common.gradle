@@ -4,7 +4,7 @@ plugins {
 }
 
 base {
-    archivesName = "botania-retro-${project.name}"
+    archivesName = "${mod_id}-${project.name}-${minecraft_version}"
 }
 
 java {

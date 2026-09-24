@@ -22,6 +22,11 @@ plugins {
 
 rootProject.name = 'botania_retro'
 
-include 'Common'
-include 'Fabric'
-include 'Forge'
+include 'common'
+project(':common').projectDir = file('Common')
+
+include 'fabric'
+project(':fabric').projectDir = file('Fabric')
+
+include 'forge'
+project(':forge').projectDir = file('Forge')
