@@ -1,0 +1,67 @@
+plugins {
+    id 'multiloader-loader'
+    id 'net.neoforged.moddev.legacyforge'
+}
+
+mixin {
+    add(sourceSets.main, "${mod_id}.refmap.json")
+
+    config("${mod_id}.mixins.json")
+}
+
+legacyForge {
+    version = "${minecraft_version}-${forge_version}"
+
+    validateAccessTransformers = true
+
+    def at = project(':Common').file('src/main/resources/META-INF/accesstransformer.cfg')
+    if (at.exists()) {
+        accessTransformers = ["src/main/resources/META-INF/accesstransformer.cfg"]
+    }
+    parchment {
+        minecraftVersion = parchment_minecraft
+        mappingsVersion = parchment_version
+    }
+    runs {
+        client {
+            client()
+        }
+        data {
+            data()
+            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+        }
+        server {
+            server()
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+sourceSets.main.resources.srcDir 'src/generated/resources'
+
+dependencies {
+    compileOnly project(":Common")
+    annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT:processor")
+
+    compileOnly("vazkii.botania:Botania:${botania_version}-FORGE") { transitive = false }
+    compileOnly rootProject.tan_forge
+    compileOnly rootProject.hsc_forge
+    compileOnly rootProject.yat_forge
+    compileOnly rootProject.suv
+    compileOnly rootProject.tfc
+    compileOnly rootProject.twt
+    compileOnly rootProject.lso
+    compileOnly rootProject.realistic
+}
+
+jar {
+    finalizedBy('reobfJar')
+    manifest.attributes([
+            "MixinConfigs": "${mod_id}.mixins.json"
+    ])
+}

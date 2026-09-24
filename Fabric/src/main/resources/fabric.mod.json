@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${description}",
+  "authors": [
+    "${mod_author}"
+  ],
+  "contact": {
+    "homepage": "https://kazamataneri.tech"
+  },
+  "license": "${license}",
+  "icon": "assets/${mod_id}/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "moe.kazamata_neri.botania_retro.fabric.FabricCommonInitializer"
+    ],
+    "client": [
+      "moe.kazamata_neri.botania_retro.fabric.client.FabricClientInitializer"
+    ]
+  },
+  "mixins": [
+    "${mod_id}.mixins.json",
+    "${mod_id}.fabric.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "minecraft": "${minecraft_version}",
+    "java": ">=${java_version}",
+    "fabric-api": "*",
+    "botania": "*"
+  },
+  "suggests": {
+    "tough-as-nails": "*",
+    "homeostatic": "*",
+    "yet_another_thirst": "*",
+    "dehydration": "*",
+    "extremedehydration": "*"
+  }
+}
