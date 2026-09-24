@@ -12,6 +12,7 @@ dependencies {
     neoForgeCompileDependencies "${hsc_neo}"
     neoForgeCompileDependencies "${yat_neo}"
     neoForgeCompileDependencies "${twr}"
+    neoForgeCompileDependencies "${tfc}"
     neoForgeCompileDependencies "${lso}"
     neoForgeCompileDependencies "${realistic}"
 

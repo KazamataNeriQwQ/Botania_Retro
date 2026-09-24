@@ -21,6 +21,9 @@ public class NeoForgeThirstPort {
         if (modList.isLoaded(YetAnotherThirst.MOD_ID)) {
             ThirstLike.INSTANCE.add(new YetAnotherThirst());
         }
+        if (modList.isLoaded(TerraFirmaCraft.MOD_ID)) {
+            ThirstLike.INSTANCE.add(new TerraFirmaCraft());
+        }
         if (modList.isLoaded(ThirstWasReclaimed.MOD_ID)) {
             if (ThirstWasTaken.isAvailable()) {
                 ThirstLike.INSTANCE.add(new ThirstWasTaken());

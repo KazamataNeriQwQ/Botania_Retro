@@ -63,6 +63,12 @@ versionRange = "[0,)"
 ordering = "AFTER"
 side = "BOTH"
 [[dependencies."${mod_id}"]]
+modId = "tfc"
+type = "optional"
+versionRange = "[0,)"
+ordering = "AFTER"
+side = "BOTH"
+[[dependencies."${mod_id}"]]
 modId = "legendarysurvivaloverhaul"
 type = "optional"
 versionRange = "[0,)"
