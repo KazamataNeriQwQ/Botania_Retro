@@ -15,7 +15,7 @@
       },
       "has_the_recipe": {
         "conditions": {
-          "recipe": "botania_retro:aesir_ring"
+          "recipe": "botania_retro:ring_of_aesir"
         },
         "trigger": "minecraft:recipe_unlocked"
       }
@@ -28,7 +28,7 @@
     ],
     "rewards": {
       "recipes": [
-        "botania_retro:aesir_ring"
+        "botania_retro:ring_of_aesir"
       ]
     },
     "sends_telemetry_event": false

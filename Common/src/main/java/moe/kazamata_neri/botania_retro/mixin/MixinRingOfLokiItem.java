@@ -14,11 +14,11 @@ import vazkii.botania.common.item.relic.RingOfLokiItem;
 public abstract class MixinRingOfLokiItem {
     @Redirect(method = "onPlayerInteract", at = @At(value = "INVOKE", target = "Lvazkii/botania/common/item/relic/RingOfLokiItem;getLokiRing(Lnet/minecraft/world/entity/player/Player;)Lnet/minecraft/world/item/ItemStack;"))
     private static ItemStack fixOnPlayerInteract(Player player) {
-        var aesirRing = EquipmentHandler.findOrEmpty(ExtraBotaniaItems.aesirRing, player);
-        if(!aesirRing.isEmpty())
+        var ringOfAesir = EquipmentHandler.findOrEmpty(ExtraBotaniaItems.ringOfAesir, player);
+        if(!ringOfAesir.isEmpty())
         {
-            return aesirRing;
+            return ringOfAesir;
         }
-        return EquipmentHandler.findOrEmpty(BotaniaItems.lokiRing, player);
+        return EquipmentHandler.findOrEmpty(BotaniaItems.RING_OF_LOKI, player);
     }
 }

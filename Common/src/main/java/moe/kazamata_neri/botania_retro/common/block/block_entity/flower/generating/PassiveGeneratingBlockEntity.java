@@ -73,7 +73,7 @@ public abstract class PassiveGeneratingBlockEntity extends GeneratingFlowerBlock
             }
         }
 
-        sync();
+        markForImmediateSync();
     }
 
     @Override
@@ -93,22 +93,17 @@ public abstract class PassiveGeneratingBlockEntity extends GeneratingFlowerBlock
     }
 
     @Override
-    public void readFromPacketNBT(CompoundTag cmp, HolderLookup.Provider registries) {
-        super.readFromPacketNBT(cmp, registries);
+    protected void loadAdditional(CompoundTag cmp, HolderLookup.Provider registries) {
+        super.loadAdditional(cmp, registries);
         this.decayTicks = cmp.getInt(TAG_DECAY_TICKS);
         this.tickCount = cmp.getInt(TAG_TICK_COUNT);
     }
 
     @Override
-    public void writeToPacketNBT(CompoundTag cmp, HolderLookup.Provider registries) {
-        super.writeToPacketNBT(cmp, registries);
+    protected void saveAdditional(CompoundTag cmp, HolderLookup.Provider registries) {
+        super.saveAdditional(cmp, registries);
         cmp.putInt(TAG_DECAY_TICKS, decayTicks);
         cmp.putInt(TAG_TICK_COUNT, tickCount);
-    }
-
-    @Override
-    public boolean isOvergrowthAffected() {
-        return false;
     }
 
     @Override

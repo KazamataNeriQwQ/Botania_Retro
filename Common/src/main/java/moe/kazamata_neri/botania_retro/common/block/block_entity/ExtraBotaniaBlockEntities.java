@@ -12,11 +12,10 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import vazkii.botania.api.block.WandHUD;
 import vazkii.botania.api.block_entity.BindableSpecialFlowerBlockEntity;
 import vazkii.botania.api.block_entity.GeneratingFlowerBlockEntity;
-import vazkii.botania.common.block.block_entity.BotaniaBlockEntities;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BiConsumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 import static moe.kazamata_neri.botania_retro.CommonInitializer.*;
@@ -61,8 +60,13 @@ public class ExtraBotaniaBlockEntities {
         }
     }
 
-    public static void registerWandHudCaps(BotaniaBlockEntities.BECapConsumer<WandHUD> consumer) {
+    public static void registerWandHudCaps(BECapConsumer<WandHUD> consumer) {
         consumer.accept(be -> new BindableSpecialFlowerBlockEntity.BindableFlowerWandHud<>((GeneratingFlowerBlockEntity) be),
                 DAYBLOOM, DAYBLOOM_PRIME, NIGHTSHADE, NIGHTSHADE_PRIME);
+    }
+
+    @FunctionalInterface
+    public interface BECapConsumer<T> {
+        void accept(Function<BlockEntity, T> factory, BlockEntityType<?>... types);
     }
 }

@@ -6,7 +6,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.TallFlowerBlock;
-import vazkii.botania.common.block.BotaniaMushroomBlock;
+import vazkii.botania.common.block.ShimmeringMushroomBlock;
 import vazkii.botania.common.block.flower.FloatingFlowerBaseBlock;
 
 import java.util.function.BiConsumer;
@@ -18,7 +18,7 @@ public final class BlockRenderLayers {
     public static void init(BiConsumer<Block, RenderType> consumer) {
         BuiltInRegistries.BLOCK.stream().filter(b -> BuiltInRegistries.BLOCK.getKey(b).getNamespace().equals(MOD_ID))
                 .forEach(b -> {
-                    if (b instanceof FloatingFlowerBaseBlock || b instanceof FlowerBlock || b instanceof TallFlowerBlock || b instanceof BotaniaMushroomBlock || b instanceof FlowerPotBlock)
+                    if (b instanceof FloatingFlowerBaseBlock || b instanceof FlowerBlock || b instanceof TallFlowerBlock || b instanceof ShimmeringMushroomBlock || b instanceof FlowerPotBlock)
                     {
                         consumer.accept(b, RenderType.cutout());
                     }

@@ -13,12 +13,13 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
+import vazkii.botania.api.item.Relic;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import vazkii.botania.api.BotaniaFabricCapabilities;
+import vazkii.botania.api.fabric.BotaniaFabricCapabilities;
 import vazkii.botania.api.BotaniaRegistries;
 import vazkii.botania.common.item.CustomCreativeTabContents;
 
@@ -62,7 +63,7 @@ public final class FabricCommonInitializer implements ModInitializer {
     }
 
     private void registerCapabilities() {
-        BotaniaFabricCapabilities.RELIC.registerForItems((st, c) -> RingOfAesirItem.makeRelic(st), ExtraBotaniaItems.aesirRing);
+        BotaniaFabricCapabilities.getItemApiLookupById(Relic.LOOKUP).registerForItems((st, c) -> RingOfAesirItem.makeRelic(st), ExtraBotaniaItems.ringOfAesir);
     }
 
     private void registerEvents() {

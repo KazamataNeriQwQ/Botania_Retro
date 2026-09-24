@@ -13,6 +13,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
+import vazkii.botania.api.item.Relic;
 import vazkii.botania.xplat.XplatAbstractions;
 
 import java.util.UUID;
@@ -34,7 +35,7 @@ public class ShapelessRelicBindRecipe extends ShapelessRecipe {
     }
 
     private static UUID getUUID(ItemStack stack) {
-        var relic = XplatAbstractions.INSTANCE.findRelic(stack);
+        var relic = XplatAbstractions.INSTANCE.findItemApi(Relic.LOOKUP, stack);
         if (relic != null)
         {
             return relic.getSoulbindUUID();

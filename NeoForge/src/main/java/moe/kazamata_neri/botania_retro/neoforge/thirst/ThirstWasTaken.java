@@ -1,35 +1,80 @@
 package moe.kazamata_neri.botania_retro.neoforge.thirst;
 
-import dev.ghen.thirst.Thirst;
-import dev.ghen.thirst.content.thirst.PlayerThirst;
-import dev.ghen.thirst.foundation.common.capability.ModAttachment;
-import moe.kazamata_neri.botania_retro.api.IThirstLike;
+import moe.kazamata_neri.botania_retro.api.ThirstLike;
 import net.minecraft.world.entity.player.Player;
+import net.neoforged.neoforge.attachment.AttachmentType;
 
-public final class ThirstWasTaken extends IThirstLike {
-    public final static String ModID = Thirst.ID;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.function.Supplier;
 
-    @Override
-    public boolean CanDrink(Player player)
-    {
-        return ((PlayerThirst)player.getData(ModAttachment.PLAYER_THIRST)).getThirst() < 20;
+public final class ThirstWasTaken extends ThirstLike {
+    private static final String THIRST_CLASS = "dev.ghen.thirst.Thirst";
+    private static final String MOD_ATTACHMENT_CLASS = "dev.ghen.thirst.foundation.common.capability.ModAttachment";
+    private static final String PLAYER_THIRST_FIELD = "PLAYER_THIRST";
+
+    public static final String MOD_ID = "thirst";
+
+    public static boolean isAvailable() {
+        try {
+            Class.forName(THIRST_CLASS);
+            return true;
+        } catch (ClassNotFoundException e) {
+            return false;
+        }
     }
 
     @Override
-    public void Drink(Player player)
-    {
-        PlayerThirst playerThirst = ((PlayerThirst)player.getData(ModAttachment.PLAYER_THIRST));
-        playerThirst.drink(2, 2);
-        float exhaustion = playerThirst.getExhaustion();
-        if(exhaustion >= 1.6F)
-        {
-            playerThirst.setExhaustion(exhaustion - 1.6F);
+    public boolean canDrink(Player player) {
+        Object thirst = getThirst(player);
+        if (thirst == null) {
+            return false;
         }
-        else
-        {
-            playerThirst.drink(0, 1);
-            playerThirst.setExhaustion(exhaustion + 2.4F);
+        return (int) invoke(thirst, "getThirst") < 20;
+    }
+
+    @Override
+    public void drink(Player player) {
+        Object thirst = getThirst(player);
+        if (thirst == null) {
+            return;
+        }
+        invoke(thirst, "drink", 2, 2);
+        float exhaustion = (float) invoke(thirst, "getExhaustion");
+        if (exhaustion >= 1.6F) {
+            invoke(thirst, "setExhaustion", exhaustion - 1.6F);
+        } else {
+            invoke(thirst, "drink", 0, 1);
+            invoke(thirst, "setExhaustion", exhaustion + 2.4F);
+        }
+    }
+
+    private static Object getThirst(Player player) {
+        try {
+            Class<?> modAttachmentClass = Class.forName(MOD_ATTACHMENT_CLASS);
+            Field field = modAttachmentClass.getField(PLAYER_THIRST_FIELD);
+            Supplier<? extends AttachmentType<?>> supplier = (Supplier<? extends AttachmentType<?>>) field.get(null);
+            return player.getData(supplier.get());
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    private static Object invoke(Object target, String name, Object... args) {
+        try {
+            Class<?>[] paramTypes = new Class<?>[args.length];
+            for (int i = 0; i < args.length; i++) {
+                Object arg = args[i];
+                if (arg instanceof Integer) {
+                    paramTypes[i] = int.class;
+                } else if (arg instanceof Float) {
+                    paramTypes[i] = float.class;
+                }
+            }
+            Method method = target.getClass().getMethod(name, paramTypes);
+            return method.invoke(target, args);
+        } catch (Exception e) {
+            return null;
         }
     }
 }
-

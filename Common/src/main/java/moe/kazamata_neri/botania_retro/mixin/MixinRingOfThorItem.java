@@ -14,10 +14,10 @@ import vazkii.botania.common.item.relic.RingOfThorItem;
 public abstract class MixinRingOfThorItem {
     @Inject(method = "getThorRing", at = @At("HEAD"), cancellable = true)
     private static void fixGetThorRing(Player player, CallbackInfoReturnable<ItemStack> cir) {
-        ItemStack aesirRing = EquipmentHandler.findOrEmpty(ExtraBotaniaItems.aesirRing, player);
-        if (!aesirRing.isEmpty())
+        ItemStack ringOfAesir = EquipmentHandler.findOrEmpty(ExtraBotaniaItems.ringOfAesir, player);
+        if (!ringOfAesir.isEmpty())
         {
-            cir.setReturnValue(aesirRing);
+            cir.setReturnValue(ringOfAesir);
         }
     }
 }

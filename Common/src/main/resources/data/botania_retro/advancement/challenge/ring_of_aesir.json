@@ -4,7 +4,7 @@
     "ring": {
       "conditions": {
         "relic": {
-          "items": "botania_retro:aesir_ring"
+          "items": "botania_retro:ring_of_aesir"
         }
       },
       "trigger": "botania:relic_bind"
@@ -17,7 +17,7 @@
     "frame": "challenge",
     "icon": {
       "count": 1,
-      "id": "botania_retro:aesir_ring"
+      "id": "botania_retro:ring_of_aesir"
     },
     "title": {
       "translate": "advancement.botania_retro:aesirRing"

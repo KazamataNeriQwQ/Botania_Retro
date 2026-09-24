@@ -50,9 +50,9 @@ public class RingOfAesirItem extends RelicBaubleItem implements WireframeCoordin
         if (!itemEntity.level().isClientSide)
         {
             ItemStack stack = itemEntity.getItem();
-            if (stack.getItem() == ExtraBotaniaItems.aesirRing)
+            if (stack.getItem() == ExtraBotaniaItems.ringOfAesir)
             {
-                var relic = XplatAbstractions.INSTANCE.findRelic(stack);
+                var relic = XplatAbstractions.INSTANCE.findItemApi(Relic.LOOKUP, stack);
                 if (relic != null)
                 {
                     UUID uuid = relic.getSoulbindUUID();
@@ -62,14 +62,14 @@ public class RingOfAesirItem extends RelicBaubleItem implements WireframeCoordin
                     Level level = itemEntity.level();
                     GlobalPos blockPos = getBindingCenter(stack);
                     List<BlockPos> blockPosList = getCursorList(stack);
-                    ItemStack lokiRing = new ItemStack(BotaniaItems.lokiRing);
-                    ItemStack odinRing = new ItemStack(BotaniaItems.odinRing);
-                    ItemStack thorRing = new ItemStack(BotaniaItems.thorRing);
+                    ItemStack lokiRing = new ItemStack(BotaniaItems.RING_OF_LOKI);
+                    ItemStack odinRing = new ItemStack(BotaniaItems.RING_OF_ODIN);
+                    ItemStack thorRing = new ItemStack(BotaniaItems.RING_OF_THOR);
                     setBindingCenter(lokiRing, blockPos);
                     setCursorList(lokiRing, blockPosList);
                     ItemStack[] rings = {lokiRing, odinRing, thorRing};
                     for (ItemStack ring : rings) {
-                        var relicRing = XplatAbstractions.INSTANCE.findRelic(ring);
+                        var relicRing = XplatAbstractions.INSTANCE.findItemApi(Relic.LOOKUP, ring);
                         if(relicRing != null)
                         {
                             assert uuid != null;
@@ -86,9 +86,9 @@ public class RingOfAesirItem extends RelicBaubleItem implements WireframeCoordin
     public static void onCrafted(Player player, ItemStack stack) {
         if (!player.level().isClientSide)
         {
-            if (stack.getItem() == ExtraBotaniaItems.aesirRing)
+            if (stack.getItem() == ExtraBotaniaItems.ringOfAesir)
             {
-                var relic = XplatAbstractions.INSTANCE.findRelic(stack);
+                var relic = XplatAbstractions.INSTANCE.findItemApi(Relic.LOOKUP, stack);
                 if (relic != null && player instanceof ServerPlayer serverPlayer && serverPlayer.getUUID().equals(relic.getSoulbindUUID()))
                 {
                     RelicBindTrigger.INSTANCE.trigger(serverPlayer, stack);
@@ -196,10 +196,10 @@ public class RingOfAesirItem extends RelicBaubleItem implements WireframeCoordin
     }
 
     private static ItemStack getAesirRing(Player player) {
-        return EquipmentHandler.findOrEmpty(ExtraBotaniaItems.aesirRing, player);
+        return EquipmentHandler.findOrEmpty(ExtraBotaniaItems.ringOfAesir, player);
     }
 
     public static Relic makeRelic(ItemStack stack) {
-        return new RelicImpl(stack, RL("challenge/" + LibItemNames.AESIR_RING));
+        return new RelicImpl(stack, RL("challenge/" + LibItemNames.RING_OF_AESIR));
     }
 }

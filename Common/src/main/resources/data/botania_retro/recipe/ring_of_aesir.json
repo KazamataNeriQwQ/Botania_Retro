@@ -3,17 +3,17 @@
   "category": "equipment",
   "ingredients": [
     {
-      "item": "botania:loki_ring"
+      "item": "botania:ring_of_loki"
     },
     {
-      "item": "botania:odin_ring"
+      "item": "botania:ring_of_odin"
     },
     {
-      "item": "botania:thor_ring"
+      "item": "botania:ring_of_thor"
     }
   ],
   "result": {
     "count": 1,
-    "id": "botania_retro:aesir_ring"
+    "id": "botania_retro:ring_of_aesir"
   }
 }

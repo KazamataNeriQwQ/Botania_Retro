@@ -37,6 +37,9 @@
     "toughasnails": "*",
     "survive": ">=10.1.2",
     "homeostatic": "*",
-    "dehydration": "*"
+    "dehydration": "*",
+    "yet_another_thirst": "*",
+    "extremedehydration": "*",
+    "hungerandthirst": "*"
   }
 }

@@ -14,10 +14,13 @@ dependencies {
     modImplementation "vazkii.botania:botania-fabric-${minecraft_version}:${botania_version}-SNAPSHOT"
 
     // Thirst Like
-    modImplementation "${tan}"
-    modImplementation "${suv}"
-    modImplementation "${hsc}"
+    modImplementation "${tan_fab}"
+    modImplementation "${suv_fab}"
+    modImplementation "${hsc_fab}"
+    modImplementation "${yat_fab}"
     modImplementation "${dhy}"
+    modImplementation "${extreme}"
+    modImplementation "${hunger}"
 
     // Thirst Like Lib
     modImplementation "${unl}"

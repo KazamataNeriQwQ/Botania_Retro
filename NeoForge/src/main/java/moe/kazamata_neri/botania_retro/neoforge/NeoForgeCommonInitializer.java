@@ -33,7 +33,7 @@ import net.neoforged.neoforge.event.*;
 import net.neoforged.neoforge.event.entity.item.ItemTossEvent;
 import net.neoforged.neoforge.event.entity.player.*;
 import net.neoforged.neoforge.registries.RegisterEvent;
-import vazkii.botania.api.BotaniaForgeCapabilities;
+import vazkii.botania.api.neoforge.BotaniaNeoForgeCapabilities;
 import vazkii.botania.api.BotaniaRegistries;
 import vazkii.botania.api.item.Relic;
 import vazkii.botania.common.item.CustomCreativeTabContents;
@@ -48,12 +48,12 @@ import java.util.function.Function;
 import static moe.kazamata_neri.botania_retro.CommonInitializer.MOD_ID;
 
 @Mod(MOD_ID)
-public class ForgeCommonInitializer {
+public class NeoForgeCommonInitializer {
     private static final Supplier<Map<Item, Function<ItemStack, Relic>>> RELIC = Suppliers.memoize(() -> Map.of(
-            ExtraBotaniaItems.aesirRing, RingOfAesirItem::makeRelic
+            ExtraBotaniaItems.ringOfAesir, RingOfAesirItem::makeRelic
     ));
 
-    public ForgeCommonInitializer(IEventBus modBus, ModContainer modContainer) {
+    public NeoForgeCommonInitializer(IEventBus modBus, ModContainer modContainer) {
         CommonInitializer.init();
         modBus.register(this);
         NeoForgeThirstPort.register(ModList.get());
@@ -108,7 +108,7 @@ public class ForgeCommonInitializer {
 
     @SubscribeEvent
     private void attachItemCaps(RegisterCapabilitiesEvent e) {
-        attachMappedItemCaps(e , BotaniaForgeCapabilities.RELIC, RELIC.get());
+        attachMappedItemCaps(e, BotaniaNeoForgeCapabilities.getItemApiLookupById(Relic.LOOKUP), RELIC.get());
     }
 
     private static <T> void attachMappedItemCaps(RegisterCapabilitiesEvent e, ItemCapability<T, Void> capability,

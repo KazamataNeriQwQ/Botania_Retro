@@ -10,14 +10,15 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import vazkii.botania.api.BotaniaForgeClientCapabilities;
+import vazkii.botania.api.neoforge.BotaniaNeoForgeCapabilities;
+import vazkii.botania.api.block.WandHUD;
 import java.util.stream.Stream;
 
 import static moe.kazamata_neri.botania_retro.CommonInitializer.MOD_ID;
 
 
 @EventBusSubscriber(modid = MOD_ID, value = Dist.CLIENT)
-public class ForgeClientInitializer {
+public class NeoForgeClientInitializer {
     @SubscribeEvent
     public static void clientInit(FMLClientSetupEvent evt) {
         BlockRenderLayers.init(ItemBlockRenderTypes::setRenderLayer);
@@ -30,7 +31,7 @@ public class ForgeClientInitializer {
 
     @SubscribeEvent
     private static void attachClientCapabilities(RegisterCapabilitiesEvent e) {
-        ExtraBotaniaBlockEntities.registerWandHudCaps((factory, types) -> Stream.of(types).forEach(blockEntityType -> e.registerBlockEntity(BotaniaForgeClientCapabilities.BLOCK_WAND_HUD, blockEntityType,
+        ExtraBotaniaBlockEntities.registerWandHudCaps((factory, types) -> Stream.of(types).forEach(blockEntityType -> e.registerBlockEntity(BotaniaNeoForgeCapabilities.getBlockApiLookupById(WandHUD.BLOCK_LOOKUP), blockEntityType,
                 (blockEntity, context) -> factory.apply(blockEntity))));
     }
 }

@@ -1,6 +1,6 @@
 package moe.kazamata_neri.botania_retro.mixin;
 
-import moe.kazamata_neri.botania_retro.api.IThirstLike;
+import moe.kazamata_neri.botania_retro.api.ThirstLike;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -16,24 +16,19 @@ import vazkii.botania.common.item.relic.FruitOfGrisaiaItem;
 public abstract class MixinFruitOfGrisaiaItem {
     @Redirect(method = {"use", "onUseTick"}, at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;canEat(Z)Z"))
     private boolean fixCanEat(Player player, boolean canAlwaysEat) {
-        for(IThirstLike thirstLike : IThirstLike.INSTANCE)
-        {
-            if (thirstLike.CanDrink(player))
-            {
-                return thirstLike.CanDrink(player);
+        for (ThirstLike thirstLike : ThirstLike.INSTANCE) {
+            if (thirstLike.canDrink(player)) {
+                return true;
             }
         }
         return player.canEat(canAlwaysEat);
     }
 
     @Inject(method = "onUseTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/food/FoodData;eat(IF)V", shift = At.Shift.AFTER))
-    public void fixOnUseTick(Level world, LivingEntity living, ItemStack stack, int count, CallbackInfo ci)
-    {
-        if (living instanceof Player player)
-        {
-            for(IThirstLike thirstLike : IThirstLike.INSTANCE)
-            {
-                thirstLike.Drink(player);
+    public void fixOnUseTick(Level world, LivingEntity living, ItemStack stack, int count, CallbackInfo ci) {
+        if (living instanceof Player player) {
+            for (ThirstLike thirstLike : ThirstLike.INSTANCE) {
+                thirstLike.drink(player);
             }
         }
     }

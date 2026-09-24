@@ -17,7 +17,7 @@ import static vazkii.botania.common.item.BotaniaItems.defaultBuilder;
 public final class ExtraBotaniaItems {
     private static final Map<String, Item> ALL = new LinkedHashMap<>();
 
-    public static final Item aesirRing = make(AESIR_RING, new RingOfAesirItem(defaultBuilder().stacksTo(1).fireResistant().rarity(Rarity.EPIC)));
+    public static final Item ringOfAesir = make(RING_OF_AESIR, new RingOfAesirItem(defaultBuilder().stacksTo(1).fireResistant().rarity(Rarity.EPIC)));
 
     private static <T extends Item> T make(String name, T item) {
         var old = ALL.put(name, item);

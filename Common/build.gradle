@@ -24,9 +24,10 @@ dependencies {
     compileOnly "vazkii.botania:botania-xplat-${minecraft_version}:${botania_version}-SNAPSHOT"
 
     // Thirst Like
-    neoForgeCompileDependencies "${tan}"
-    neoForgeCompileDependencies "${suv}"
-    neoForgeCompileDependencies "${hsc}"
+    neoForgeCompileDependencies "${tan_neo}"
+    neoForgeCompileDependencies "${suv_neo}"
+    neoForgeCompileDependencies "${hsc_neo}"
+    neoForgeCompileDependencies "${yat_neo}"
 
     // Thirst Like Lib
     neoForgeCompileDependencies "${unl}"

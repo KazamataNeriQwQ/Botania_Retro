@@ -15,7 +15,7 @@ import vazkii.botania.common.lib.BotaniaTags;
 public abstract class MixinRingOfOdinItem {
     @Inject(method = "onPlayerAttacked", at = @At("HEAD"), cancellable = true)
     private static void fixOnPlayerAttacked(Player player, DamageSource src, CallbackInfoReturnable<Boolean> cir) {
-        boolean isAesirRing = src.is(BotaniaTags.DamageTypes.RING_OF_ODIN_IMMUNE) && !EquipmentHandler.findOrEmpty(ExtraBotaniaItems.aesirRing, player).isEmpty();
+        boolean isAesirRing = src.is(BotaniaTags.DamageTypes.RING_OF_ODIN_IMMUNE) && !EquipmentHandler.findOrEmpty(ExtraBotaniaItems.ringOfAesir, player).isEmpty();
         if (isAesirRing)
         {
             cir.setReturnValue(true);

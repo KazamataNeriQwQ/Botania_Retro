@@ -7,10 +7,13 @@ dependencies {
     neoForgeCompileDependencies "vazkii.botania:botania-neoforge-${minecraft_version}:${botania_version}-SNAPSHOT"
 
     // ThirstLike
-    neoForgeCompileDependencies "${tan}"
-    neoForgeCompileDependencies "${suv}"
-    neoForgeCompileDependencies "${hsc}"
-    neoForgeCompileDependencies "${twt}"
+    neoForgeCompileDependencies "${tan_neo}"
+    neoForgeCompileDependencies "${suv_neo}"
+    neoForgeCompileDependencies "${hsc_neo}"
+    neoForgeCompileDependencies "${yat_neo}"
+    neoForgeCompileDependencies "${twr}"
+    neoForgeCompileDependencies "${lso}"
+    neoForgeCompileDependencies "${realistic}"
 
     // Thirst Like Lib
     neoForgeCompileDependencies "${unl}"

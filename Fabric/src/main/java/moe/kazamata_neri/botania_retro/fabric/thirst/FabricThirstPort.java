@@ -1,29 +1,34 @@
 package moe.kazamata_neri.botania_retro.fabric.thirst;
 
-import moe.kazamata_neri.botania_retro.api.IThirstLike;
+import moe.kazamata_neri.botania_retro.api.ThirstLike;
 import moe.kazamata_neri.botania_retro.thirst.Homeostatic;
 import moe.kazamata_neri.botania_retro.thirst.Survive;
 import moe.kazamata_neri.botania_retro.thirst.ToughAsNails;
+import moe.kazamata_neri.botania_retro.thirst.YetAnotherThirst;
 import net.fabricmc.loader.api.FabricLoader;
 
 public class FabricThirstPort {
-    public static void register(FabricLoader loader)
-    {
-        if(loader.isModLoaded(ToughAsNails.ModID))
-        {
-            IThirstLike.INSTANCE.add(new ToughAsNails());
+    public static void register(FabricLoader loader) {
+        if (loader.isModLoaded(ToughAsNails.MOD_ID)) {
+            ThirstLike.INSTANCE.add(new ToughAsNails());
         }
-        if(loader.isModLoaded(Survive.ModID))
-        {
-            IThirstLike.INSTANCE.add(new Survive());
+        if (loader.isModLoaded(Survive.MOD_ID)) {
+            ThirstLike.INSTANCE.add(new Survive());
         }
-        if(loader.isModLoaded(Homeostatic.ModID))
-        {
-            IThirstLike.INSTANCE.add(new Homeostatic());
+        if (loader.isModLoaded(Homeostatic.MOD_ID)) {
+            ThirstLike.INSTANCE.add(new Homeostatic());
         }
-        if(loader.isModLoaded(Dehydration.ModID))
-        {
-            IThirstLike.INSTANCE.add(new Dehydration());
+        if (loader.isModLoaded(YetAnotherThirst.MOD_ID)) {
+            ThirstLike.INSTANCE.add(new YetAnotherThirst());
+        }
+        if (loader.isModLoaded(Dehydration.MOD_ID)) {
+            ThirstLike.INSTANCE.add(new Dehydration());
+        }
+        if (loader.isModLoaded(ExtremeDehydration.MOD_ID)) {
+            ThirstLike.INSTANCE.add(new ExtremeDehydration());
+        }
+        if (loader.isModLoaded(HungerAndThirst.MOD_ID)) {
+            ThirstLike.INSTANCE.add(new HungerAndThirst());
         }
     }
 }
